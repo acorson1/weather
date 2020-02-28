@@ -1,0 +1,501 @@
+funtion Welcome()
+{
+	Print"Hello";
+}
+Function Graceful()
+{
+	break;
+	break;
+	break:
+	break;
+	Print"Goodbye and Goodnight";
+}
+
+Start
+	Bool a = False;
+	While(a==False)
+	{
+		Print welcome();
+		Print "please select next menu from here"
+		Print "1.Report
+				+ 2.Sorting
+				+ 3.Statistics
+				+ 4.Data Entry
+				+ 0.Exit
+				+ please use the number of menu only";
+		If(Input == 1)
+		{
+			Print"Report Menu";
+			Print"Please select Function you want done
+				+1.Yearly report
+				+2.Monthly report
+				+0.Exit
+				+9.Back";
+			If(Input == 1)
+            {
+                print"Please select the desired weather station";
+				string filename "C:/c#-data-files/" + Input;
+
+				Print "what is the year you want to start from?";
+				int fyear = Input;
+
+				Print "what is the laster year you want information on?";
+				Int lyear = Input;
+
+				while(line != null)
+				{
+					string line-data = ReadFile(filename)
+					tempyear = split line-data by \t;
+					year = convert into int (tempyear);
+
+					if(year >= fyear && lyear >= year)
+					{
+						print line-data;
+					}
+				}	
+            }
+            Else If(Input == 2)
+            {
+                print"Please select the desired weather station";
+				string filename "C:/c#-data-files/" + Input;
+
+				Print "what is the year you want to start from?";
+				int fyear = Input;
+
+				print "what month of that year you want to srart from?";
+				int fmonth = Input;
+
+				Print "what is the last year you want information on?";
+				Int lyear = Input;
+
+				print "what is the last month of that year do you want information on?";
+				int lmonth = Input;
+
+				while(line != null)
+				{
+					string line-data = ReadFile(filename)
+					tempyear = split line-data by \t;
+					year = convert into int (tempyear);
+					tempmonth = split line-data by the 2nd \t;
+					month = convert into int (tempmonth);
+
+					if(year >= fyear && month >= fmonth)
+					{
+						if(year >= lyear && month >= lmonth)
+						{
+							print line-data;
+						}
+					}
+				}	
+            }
+            Else If(Input == 9)
+            {
+                break;
+            }
+            Else If(Input == 0)
+            {
+                Graceful();
+            }
+            Else
+            {
+                Print"you have not entered a vailid Input";
+            }
+		}
+		Else If(Input == 2)
+		{
+			Print"Sorting Menu";
+			Print"Please select Function you want done
+				+1.Ascending order sorting
+				+2.Descedning order
+				+9.Break
+				+0.Exit";
+			a=True;
+
+			If(Input == 1)
+			{
+				print"Please select the desired weather station";
+				string filename = "C:/c#-data-files/" + Input;
+
+				Print "what is the value you would like it to be sorted by?";
+				string value = Input;
+
+				Print "would you like to select a specific range of time? y/n";
+				If(Input == "y")
+				{
+					Print "what is the time you want to start from? mm/yyyy";
+					string tempfirst = Split Input "/";
+					fmonth = 1st Split;
+					fyear = 2nd split;
+
+					Print "what is the time you want to end at? mm/yyyy";
+					string tempfirst = Split Input "/";
+					int lmonth = 1st Split;
+					int lyear = 2nd split;
+
+					int i = 0;
+					int range = ((lyear - fyear) * 12) + (lmonth - fmonth);
+					String[] data = new string [range,7]
+					while(line != null)
+					{
+						string line-data = ReadFile(filename)
+						tempyear = split line-data by \t;
+						year = convert into int (tempyear);
+						tempmonth = split line-data by the 2nd \t;
+						month = convert into int (tempmonth);
+
+						if(year >= fyear && month >= fmonth)
+						{
+							if(year >= lyear && month >= lmonth)
+							{
+								For(i =< data.Length)
+								{
+									data [i,0] = year;
+									data [i,1] = month;
+									data [i,2] = Split.line-data by 3rd \t;
+									data [i,3] = Split.line-data by 4th \t;
+									data [i,4] = Split.line-data by 5th \t;
+									data [i,5] = Split.line-data by 6th \t;
+									data [i,6] = Split.line-data by 7th \t;
+								}
+							}
+						}
+					}
+					If(value == "max temp")
+					{
+						int tvalue = 2;
+					}
+					Else IF(value == "min temp")
+					{
+						int tvalue = 3;
+					}
+					Else If(value == "af")
+					{
+						int tvalue = 4;
+					}
+					Else If(value == "rain")
+					{
+						int tvalue = 5;
+					}
+					Else If(value == "sun")
+					{
+						int tvalue = 6;
+					}
+
+					For(l =< data.Length)
+					{
+						Array.Sort(data, delegate(data [l] , data[l++])) {
+							Return data[l,tvalue] CompareTo(data[l++,tvalue]);
+							});
+						Print data [l,0] + data [l.1] + data [l.2] + data [l.3] + data [l.4] + data [l.5] + data [l.6];
+					}
+				}
+			}
+			Else If(Input == 2)
+			{
+				print"Please select the desired weather station";
+				string filename "C:/c#-data-files/" + Input;
+
+				Print "what is the value you would like it to be sorted by?";
+				string value = Input;
+
+				Print "would you like to select a specific range of time? y/n";
+				If(Input == "y")
+				{
+					Print "what is the time you want to start from? mm/yyyy";
+					string tempfirst = Split Input "/";
+					fmonth = 1st Split;
+					fyear = 2nd split;
+
+					Print "what is the time you want to end at? mm/yyyy";
+					string tempfirst = Split Input "/";
+					int lmonth = 1st Split;
+					int lyear = 2nd split;
+
+					int i = 0;
+					int range = ((lyear - fyear) * 12) + (lmonth - fmonth);
+					String[] data = new string [range,7]
+					while(line != null)
+					{
+						string line-data = ReadFile(filename)
+						tempyear = split line-data by \t;
+						year = convert into int (tempyear);
+						tempmonth = split line-data by the 2nd \t;
+						month = convert into int (tempmonth);
+
+						if(year >= fyear && month >= fmonth)
+						{
+							if(year >= lyear && month >= lmonth)
+							{
+								For(i =< data.Length)
+								{
+									data [i,0] = year;
+									data [i,1] = month;
+									data [i,2] = Split.line-data by 3rd \t;
+									data [i,3] = Split.line-data by 4th \t;
+									data [i,4] = Split.line-data by 5th \t;
+									data [i,5] = Split.line-data by 6th \t;
+									data [i,6] = Split.line-data by 7th \t;
+								}
+							}
+						}
+					}
+					If(value == "max temp")
+					{
+						int tvalue = 2;
+					}
+					Else IF(value == "min temp")
+					{
+						int tvalue = 3;
+					}
+					Else If(value == "af")
+					{
+						int tvalue = 4;
+					}
+					Else If(value == "rain")
+					{
+						int tvalue = 5;
+					}
+					Else If(value == "sun")
+					{
+						int tvalue = 6;
+					}
+
+					For(l =< data.Length)
+					{
+						var orderByDescendingResult = from tvalue in data;
+						orderby data [l,tavlue] descending;
+
+						Print orderByDescendingResult;
+					}
+			}
+			Else If(Input == 9)
+			{
+				break;
+			}
+			Else If(Input == 0)
+			{
+				Graceful();
+			}
+			Else
+			{
+				Print"you have not entered a valid Input";
+			}
+		}
+		Else If(Input == 3)
+		{
+			Print"Statistics Menu";
+			Print"Please select Function you want done
+				+1.Average 
+				+2.Total
+				+3.Comparing
+				+9.Back
+				+0.Exit";
+
+			a=True;
+
+			If(Input == 1)
+			{
+				print"Please select the desired weather station";
+				string filename "C:/c#-data-files/" + Input;
+
+
+				Print "what is the value you would like it to be sorted by?";
+				string value = Input;
+
+				Print "would you like to select a specific range of time? y/n";
+				If(Input == "y")
+				{
+					Print "what is the time you want to start from? mm/yyyy";
+					string tempfirst = Split Input "/";
+					fmonth = 1st Split;
+					fyear = 2nd split;
+
+					Print "what is the time you want to end at? mm/yyyy";
+					string tempfirst = Split Input "/";
+					int lmonth = 1st Split;
+					int lyear = 2nd split;
+
+					int i = 0;
+					int range = ((lyear - fyear) * 12) + (lmonth - fmonth);
+					String[] data = new string [range,7]
+					while(line != null)
+					{
+						string line-data = ReadFile(filename)
+						tempyear = split line-data by \t;
+						year = convert into int (tempyear);
+						tempmonth = split line-data by the 2nd \t;
+						month = convert into int (tempmonth);
+
+						if(year >= fyear && month >= fmonth)
+						{
+							if(year >= lyear && month >= lmonth)
+							{
+								For(i =< data.Length)
+								{
+									data [i,0] = year;
+									data [i,1] = month;
+									data [i,2] = Split.line-data by 3rd \t;
+									data [i,3] = Split.line-data by 4th \t;
+									data [i,4] = Split.line-data by 5th \t;
+									data [i,5] = Split.line-data by 6th \t;
+									data [i,6] = Split.line-data by 7th \t;
+								}
+								i=0;
+								int total = 0;
+								int unfit = 0;
+								
+								If(value == "max temp")
+								{
+									int tvalue = 2;
+								}
+								Else IF(value == "min temp")
+								{
+									int tvalue = 3;
+								}
+								Else If(value == "af")
+								{
+									int tvalue = 4;
+								}
+								Else If(value == "rain")
+								{
+									int tvalue = 5;
+								}
+								Else If(value == "sun")
+								{
+									int tvalue = 6;
+								}
+								For(i =< data.length)
+								{
+									If(data [i,tvalue] == "--")
+									{
+										unfit ++;
+									}
+									Else
+									{
+										total = data [i,tvalue] + total;
+									}
+									i++;
+								}
+								double Average = (total / (data.length - unfit));
+								Print "the average " + value +" is " + Average;
+							}
+						}
+					}
+
+			}
+
+			Else If(Input == 2)
+			{
+				print"Please select the desired weather station";
+				string filename "C:/c#-data-files/" + Input;
+
+				Print "what is the value you would like it to be totalled?";
+				string value = Input;
+
+				Print "would you like to select a specific range of time? y/n";
+				If(Input == "y")
+				{
+					Print "what is the time you want to start from? mm/yyyy";
+					string tempfirst = Split Input "/";
+					fmonth = 1st Split;
+					fyear = 2nd split;
+
+					Print "what is the time you want to end at? mm/yyyy";
+					string tempfirst = Split Input "/";
+					int lmonth = 1st Split;
+					int lyear = 2nd split;
+
+					int i = 0;
+					int range = ((lyear - fyear) * 12) + (lmonth - fmonth);
+					String[] data = new string [range,7]
+
+					If(value == "max temp")
+						{
+							int tvalue = 2;
+						}
+						Else If(value == "min temp")
+						{
+							int tvalue = 3;
+						}
+						Else If(value == "af")
+						{
+							int tvalue = 4;
+						}
+						Else If(value == "rain")
+						{
+							int tvalue = 5;
+						}
+						Else If(value == "sun")
+						{
+							int tvalue = 6;
+						}
+
+					while(line != null)
+					{
+						string line-data = ReadFile(filename)
+						tempyear = split line-data by \t;
+						year = convert into int (tempyear);
+						tempmonth = split line-data by the 2nd \t;
+						month = convert into int (tempmonth);
+
+						if(year >= fyear && month >= fmonth)
+						{
+							if(year >= lyear && month >= lmonth)
+							{
+								For(i =< data.Length)
+								{
+									data [i,0] = year;
+									data [i,1] = month;
+									data [i,2] = Split.line-data by 3rd \t;
+									data [i,3] = Split.line-data by 4th \t;
+									data [i,4] = Split.line-data by 5th \t;
+									data [i,5] = Split.line-data by 6th \t;
+									data [i,6] = Split.line-data by 7th \t;
+									
+									Int total = total + data[i,tvalue];
+								}
+							}
+						}
+						Print "the total " + value + " is " + total;
+					}
+				}
+			}
+
+			Else If(Input == 9)
+			{
+				Break;
+			}
+
+			Else If(Input == 0)
+			{
+				Graceful{};
+			}
+
+			Else
+			{
+				"you have not entered a vaiid input"
+			}
+		}
+		Else If(Input == 4)
+		{
+			Print"Data Entry Menu";
+			a=True;
+			print"Please select the desired weather station";
+			string filename "C:/c#-data-files/" + Input;
+
+		}
+			//enter data
+			//validate whether actual data
+		}
+		Else If(Input == 0)
+		{
+			Print"Goodbye and Goodnight";
+			a=True;
+			break;
+		}
+		Else
+		{
+			Print "You have not entered a valid Input, Please try again";
+		}
+	}
+End
