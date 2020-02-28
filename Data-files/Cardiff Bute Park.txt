@@ -1,4 +1,4 @@
-Cardiff Bute Park
+sCardiff Bute Park
 Location 317600E 177300N, Lat 51.488 Lon -3.187, 9 metres amsl
 Estimated data is marked with a * after the value.
 Missing data (more than 2 days missing in month) is marked by  ---.
