@@ -44,7 +44,6 @@ namespace weather_system
                 Console.WriteLine("what is the last month you want information on?");
                 lmonth = Convert.ToInt32(Console.ReadLine());
             }
-            bool found = false;
 
             using (StreamReader sr = new StreamReader(path))
             {
@@ -81,7 +80,7 @@ namespace weather_system
                 }
             }
         }
-        public static void sortingby(int type)
+        public static void Sortingby(int type)
         {
             int tvalue = 0;
             if (type != 1 && type != 2)
@@ -141,7 +140,7 @@ namespace weather_system
             }
         }
 
-        public static void stat(int type)
+        public static void Stat(int type)
         {
             int tvalue = 0;
             if (type != 1 && type != 2)
@@ -190,7 +189,7 @@ namespace weather_system
             }
         }
 
-        public static void dataentry()
+        public static void Dataentry()
             {
                 
             }
@@ -211,9 +210,9 @@ namespace weather_system
             {
                 if (answer == 1)
                 {
-                    Console.WriteLine("weather report menu" +
-                    "1. Annual reports" +
-                    "2. report month range");
+                    Console.WriteLine("weather report menu");
+                    Console.WriteLine("1. Annual reports");
+                    Console.WriteLine("2. report month range");
                     int menu = Convert.ToInt32(Console.ReadLine());
 
                     Report(menu);
@@ -225,21 +224,21 @@ namespace weather_system
                     Console.WriteLine("");
                     int menu = Convert.ToInt32(Console.ReadLine());
 
-                    sortingby(menu);
+                    Sortingby(menu);
                 }
                 if (answer == 3)
                 {
                     Console.WriteLine("statistical menu");
                     int menu = Convert.ToInt32(Console.ReadLine());
 
-                    stat(menu);
+                    Stat(menu);
                 }
                 if (answer == 4)
                 {
                     Console.WriteLine("data entry menu");
                     int menu = Convert.ToInt32(Console.ReadLine());
 
-                    dataentry();
+                    Dataentry();
                 }
                 if (answer == 0)
                 {
