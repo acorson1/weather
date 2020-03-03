@@ -15,7 +15,7 @@ namespace weather_system
             public double Rain { get; set; }
             public double Sun { get; set; }
 
-         }
+        }
         public static void Report(int type)
         {
             Console.WriteLine("Please select the desired weather station");
@@ -26,10 +26,8 @@ namespace weather_system
 
             Console.WriteLine("what is the laster year you want information on?");
             int lyear = Convert.ToInt32(Console.ReadLine());
-            
 
-
-                int fmonth = 2;
+            int fmonth = 2;
             int lmonth = 1;
 
             if (type == 1)
@@ -46,6 +44,7 @@ namespace weather_system
                 Console.WriteLine("what is the last month you want information on?");
                 lmonth = Convert.ToInt32(Console.ReadLine());
             }
+            bool found = false;
 
             using (StreamReader sr = new StreamReader(path))
             {
@@ -59,23 +58,32 @@ namespace weather_system
                     if (type == '1')
                     {
                     month = 1;
-                }
-                else if (type == '2')
-                {
-                    month = Convert.ToInt32(line.Split("\t")[2]);
-                }
-                if (year >= fyear && lyear >= year)
-                {
-                    if (month >= fmonth && lmonth >= month)
+                    }
+                    else if (type == '2')
+                    {
+                        month = Convert.ToInt32(line.Split("\t")[2]);
+                    }
+                    if (fyear == year && month >= fmonth)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    else if (year > fyear && lyear > year)
+                    {
+                        if (month == fmonth)
+                        {
+                        Console.WriteLine(line);
+                        }
+                    }
+                    else if (year == lyear && month <= lmonth)
                     {
                         Console.WriteLine(line);
                     }
                 }
             }
         }
-}
         public static void sortingby(int type)
         {
+            int tvalue = 0;
             if (type != 1 && type != 2)
             {
                 Console.WriteLine("you have note enterd a valid input");
@@ -83,7 +91,7 @@ namespace weather_system
             else if (type == '1' || type == '2')
             {
                 Console.WriteLine("Please select the desired weather station");
-                string location = ("C:\\c#-data-files\\" + Console.ReadLine() + ".txt");
+                string path = ("C:\\c#-data-files\\" + Console.ReadLine() + ".txt");
 
                 Console.WriteLine("when do you want to start from? (MM/YYYY)");
                 string fdate = Console.ReadLine();
@@ -94,7 +102,7 @@ namespace weather_system
                 string ldate = Console.ReadLine();
                 int lmonth = Convert.ToInt32(ldate.Split('/')[0]);
                 int lyear = Convert.ToInt32(ldate.Split('/')[1]);
-                int tvalue = 0;
+                
 
                 Console.WriteLine("what data do you want it sorted by?");
                 string value = Console.ReadLine();
@@ -120,18 +128,72 @@ namespace weather_system
                     tvalue = 6;
                 }
                 Console.WriteLine(tvalue);
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    string line = sr.ReadLine();
+                    while (line != null)
+                    {
+                        line = sr.ReadLine();
+                        int year = Convert.ToInt32(line.Split("\t")[1]);
+                        int month = Convert.ToInt32(line.Split("\t")[2]);
+                    }
+                }
             }
         }
 
         public static void stat(int type)
         {
+            int tvalue = 0;
+            if (type != 1 && type != 2)
+            {
+                Console.WriteLine("you have note enterd a valid input");
+            }
+            else if (type == '1' || type == '2')
+            {
+                Console.WriteLine("Please select the desired weather station");
+                string path = ("C:\\c#-data-files\\" + Console.ReadLine() + ".txt");
 
+                Console.WriteLine("when do you want to start from? (MM/YYYY)");
+                string fdate = Console.ReadLine();
+                int fmonth = Convert.ToInt32(fdate.Split('/')[0]);
+                int fyear = Convert.ToInt32(fdate.Split('/')[1]);
+
+                Console.WriteLine("when do you want the search to end? (MM/YYYY)");
+                string ldate = Console.ReadLine();
+                int lmonth = Convert.ToInt32(ldate.Split('/')[0]);
+                int lyear = Convert.ToInt32(ldate.Split('/')[1]);
+                
+
+                Console.WriteLine("what data do you want it sorted by?");
+                string value = Console.ReadLine();
+
+                if (value == "max temp")
+                {
+                    tvalue = 2;
+                }
+                else if (value == "min temp")
+                {
+                    tvalue = 3;
+                }
+                else if (value == "af")
+                {
+                    tvalue = 4;
+                }
+                else if (value == "rain")
+                {
+                    tvalue = 5;
+                }
+                else if (value == "sun")
+                {
+                    tvalue = 6;
+                }
+            }
         }
 
-        public static void dataentry(int type)
-        {
-
-        }
+        public static void dataentry()
+            {
+                
+            }
 
         static void Main(string[] args)
         {
@@ -177,7 +239,7 @@ namespace weather_system
                     Console.WriteLine("data entry menu");
                     int menu = Convert.ToInt32(Console.ReadLine());
 
-                    dataentry(menu);
+                    dataentry();
                 }
                 if (answer == 0)
                 {
