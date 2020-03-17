@@ -14,7 +14,6 @@ namespace weather_system
             public int Airfrost { get; set; }
             public double Rain { get; set; }
             public double Sun { get; set; }
-
         }
         public static void Report(int type)
         {
@@ -126,12 +125,13 @@ namespace weather_system
                 {
                     tvalue = 6;
                 }
-                Console.WriteLine(tvalue);
+                int i = 0;
                 using (StreamReader sr = new StreamReader(path))
                 {
                     string line = sr.ReadLine();
                     while (line != null)
                     {
+                        i++;
                         line = sr.ReadLine();
                         int year = Convert.ToInt32(line.Split("\t")[1]);
                         int month = Convert.ToInt32(line.Split("\t")[2]);
@@ -186,6 +186,56 @@ namespace weather_system
                 {
                     tvalue = 6;
                 }
+                int i = 0;
+                int total = 0;
+                int current = 0;
+                int wrong = 0;
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    string line = sr.ReadLine();
+                    while (line != null)
+                    {
+                        i++;
+                        line = sr.ReadLine();
+                        int year = Convert.ToInt32(line.Split("\t")[1]);
+                        int month = Convert.ToInt32(line.Split("\t")[2]);
+                        if (line.Split("\t")[tvalue] != "--" )
+                        {
+                            current = Convert.ToInt32(line.Split("\t")[tvalue]);
+                        }
+                        else
+                        {
+                            current = 0;
+                            wrong++;
+                        }
+                        if (fyear == year && month >= fmonth)
+                        {
+                            total = current + total;
+                        }
+                        else if (year > fyear && lyear > year)
+                        {
+                            if (month == fmonth)
+                            {
+                                total = current + total;
+                            }
+                        }
+                        else if (year == lyear && month <= lmonth)
+                        {
+                            total = current + total;
+                        }
+                        if (type == 1)
+                        {
+                            int average = total / (i - wrong);
+                            Console.WriteLine(average);
+                        }
+
+                        else if (type == 2)
+                        {
+                            Console.WriteLine("the total  " + value + "between" + fmonth + lmonth + " is " + total);
+                        }
+                    }
+                }
+
             }
         }
 
