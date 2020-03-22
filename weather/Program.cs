@@ -15,6 +15,7 @@ namespace weather_system
             public double Rain { get; set; }
             public double Sun { get; set; }
         }
+
         public static void Report(int type)
         {
             Console.WriteLine("Please select the desired weather station");
@@ -79,6 +80,7 @@ namespace weather_system
                 }
             }
         }
+
         public static void Sortingby(int type)
         {
             int tvalue = 0;
@@ -240,7 +242,7 @@ namespace weather_system
         }
 
         public static void Dataentry()
-            {
+        {
             char answer = 'y';
             while (answer == 'y')
             {
@@ -250,27 +252,33 @@ namespace weather_system
 
                 //2.information
                 Console.WriteLine("year");
-
+                string year = Console.ReadLine();
 
                 Console.WriteLine("month");
-
+                string month = Console.ReadLine();
 
                 Console.WriteLine("max temp");
-
+                string maxtemp = Console.ReadLine();
 
                 Console.WriteLine("min temp");
-
+                string mintemp = Console.ReadLine();
 
                 Console.WriteLine("AF");
-
+                string AF = Console.ReadLine();
 
                 Console.WriteLine("sun");
-
+                string sun = Console.ReadLine();
 
                 //verify
+
+                using (StreamWriter sw = File.AppendText(path))
+				{
+                    sw.WriteLine(year + "\t" + month + "\t" + maxtemp + "\t" + mintemp + "\t" + AF + "\t" + sun);
+				}
                 //append data file
                 Console.WriteLine("is that all? (y/n)");
                 answer = Convert.ToChar(Console.ReadLine());
+
             }
         }
 
