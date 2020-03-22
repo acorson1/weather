@@ -269,6 +269,8 @@ namespace weather_system
 
                 //verify
                 //append data file
+                Console.WriteLine("is that all? (y/n)");
+                answer = Convert.ToChar(Console.ReadLine());
             }
         }
 
