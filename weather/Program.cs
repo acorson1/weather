@@ -226,12 +226,12 @@ namespace weather_system
                         if (type == 1)
                         {
                             int average = total / (i - wrong);
-                            Console.WriteLine(average);
+                            Console.WriteLine("the average " + value + " between" + fmonth + " and " + lmonth + " is " + average);
                         }
 
                         else if (type == 2)
                         {
-                            Console.WriteLine("the total  " + value + "between" + fmonth + lmonth + " is " + total);
+                            Console.WriteLine("the total " + value + " between" + fmonth + " and " + lmonth + " is " + total);
                         }
                     }
                 }
@@ -241,8 +241,36 @@ namespace weather_system
 
         public static void Dataentry()
             {
-                
+            char answer = 'y';
+            while (answer == 'y')
+            {
+                //1.station
+                Console.WriteLine("what station do you want to enter the data for?");
+                string path = ("C:\\c#-data-files\\" + Console.ReadLine() + ".txt");
+
+                //2.information
+                Console.WriteLine("year");
+
+
+                Console.WriteLine("month");
+
+
+                Console.WriteLine("max temp");
+
+
+                Console.WriteLine("min temp");
+
+
+                Console.WriteLine("AF");
+
+
+                Console.WriteLine("sun");
+
+
+                //verify
+                //append data file
             }
+        }
 
         static void Main(string[] args)
         {
