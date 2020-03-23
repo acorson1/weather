@@ -250,24 +250,51 @@ namespace weather_system
                 Console.WriteLine("what station do you want to enter the data for?");
                 string path = ("C:\\c#-data-files\\" + Console.ReadLine() + ".txt");
 
+                string year = "2020";
+                string month = "01";
+                string maxtemp = "100.0";
+                string mintemp = "0.1";
+                string AF = "50";
+                string sun = "1";
+
                 //2.information
-                Console.WriteLine("year");
-                string year = Console.ReadLine();
+                while (Convert.ToInt32(year) >= 1800 && Convert.ToInt32(year) <= 2025)
+                {
+                    Console.WriteLine("year");
+                    year = Console.ReadLine();
+                }
 
-                Console.WriteLine("month");
-                string month = Console.ReadLine();
+                while (Convert.ToInt32(month) >= 1 && Convert.ToInt32(month) <= 12)
+                {
+                    Console.WriteLine("month");
+                    month = Console.ReadLine();
+                }
 
-                Console.WriteLine("max temp");
-                string maxtemp = Console.ReadLine();
+                while (Convert.ToDouble(maxtemp) >= -1000 && Convert.ToDouble(maxtemp) <= 1000 || maxtemp == "--")
+                {
+                    Console.WriteLine("max temp");
+                    maxtemp = Console.ReadLine();
+                }
 
-                Console.WriteLine("min temp");
-                string mintemp = Console.ReadLine();
+                while (Convert.ToDouble(mintemp) >= -1000 && Convert.ToDouble(mintemp) <= Convert.ToDouble(maxtemp) || mintemp == "--")
+                {
+                    Console.WriteLine("min temp");
+                    mintemp = Console.ReadLine();
+                }
 
-                Console.WriteLine("AF");
-                string AF = Console.ReadLine();
+                while (Convert.ToDouble(AF) >= 0 && Convert.ToDouble(AF) <= 31 || AF == "--")
+                {
+                    Console.WriteLine("AF");
+                    AF = Console.ReadLine();
+                }
+                
 
-                Console.WriteLine("sun");
-                string sun = Console.ReadLine();
+                while (Convert.ToInt32(sun) >= 0 && Convert.ToInt32(sun) <= 31 || sun == "--")
+                {
+                    Console.WriteLine("sun");
+                    sun = Console.ReadLine();
+                }
+                
 
                 //verify
 
