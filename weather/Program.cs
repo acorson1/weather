@@ -154,39 +154,59 @@ namespace weather_system
                 Console.WriteLine("Please select the desired weather station");
                 string path = ("C:\\c#-data-files\\" + Console.ReadLine() + ".txt");
 
-                Console.WriteLine("when do you want to start from? (MM/YYYY)");
-                string fdate = Console.ReadLine();
-                int fmonth = Convert.ToInt32(fdate.Split('/')[0]);
-                int fyear = Convert.ToInt32(fdate.Split('/')[1]);
+                int fmonth = 1;
+                while (fmonth >= 1 && fmonth <= 12)
+                {
+                    Console.WriteLine("when do you want to start from? (MM/YYYY)");
+                    string fdate = Console.ReadLine();
+                    fmonth = Convert.ToInt32(fdate.Split('/')[0]);
+                    int fyear = Convert.ToInt32(fdate.Split('/')[1]);
+                }
 
-                Console.WriteLine("when do you want the search to end? (MM/YYYY)");
-                string ldate = Console.ReadLine();
-                int lmonth = Convert.ToInt32(ldate.Split('/')[0]);
-                int lyear = Convert.ToInt32(ldate.Split('/')[1]);
-                
+                int lmonth = 1;
+                while (lmonth >= 1 && lmonth <= 12)
+                {
+                    Console.WriteLine("when do you want the search to end? (MM/YYYY)");
+                    string ldate = Console.ReadLine();
+                    lmonth = Convert.ToInt32(ldate.Split('/')[0]);
+                    int lyear = Convert.ToInt32(ldate.Split('/')[1]);
+                }
 
-                Console.WriteLine("what data do you want it sorted by?");
+                int a = 0;
+                while (a == 0)
+                {Console.WriteLine("what data do you want it sorted by?");
                 string value = Console.ReadLine();
 
-                if (value == "max temp")
-                {
-                    tvalue = 2;
-                }
-                else if (value == "min temp")
-                {
-                    tvalue = 3;
-                }
-                else if (value == "af")
-                {
-                    tvalue = 4;
-                }
-                else if (value == "rain")
-                {
-                    tvalue = 5;
-                }
-                else if (value == "sun")
-                {
-                    tvalue = 6;
+                    if (value == "max temp")
+                    {
+                        tvalue = 2;
+                        a++;
+                    }
+                    else if (value == "min temp")
+                    {
+                        tvalue = 3;
+                        a++;
+                    }
+                    else if (value == "af")
+                    {
+                        tvalue = 4;
+                        a++;
+                    }
+                    else if (value == "rain")
+                    {
+                        tvalue = 5;
+                        a++;
+                    }
+                    else if (value == "sun")
+                    {
+                        tvalue = 6;
+                        a++;
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("you have not entered the correct value, try again");
+                    }
                 }
                 int i = 0;
                 int total = 0;
