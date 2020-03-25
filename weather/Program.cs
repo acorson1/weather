@@ -5,16 +5,6 @@ namespace weather_system
 {
     class Program
     {
-        public class Data
-        {
-            public int Year { get; set; }
-            public int Month { get; set; }
-            public double Maxtemp { get; set; }
-            public double Mintemp { get; set; }
-            public int Airfrost { get; set; }
-            public double Rain { get; set; }
-            public double Sun { get; set; }
-        }
 
         public static void Report(int type)
         {
@@ -51,12 +41,12 @@ namespace weather_system
                 while (line != null)
                 {
                     line = sr.ReadLine();
-                    int year  = Convert.ToInt32(line.Split("\t")[1]);
+                    int year = Convert.ToInt32(line.Split("\t")[1]);
                     int month = 0;
-                
+
                     if (type == '1')
                     {
-                    month = 1;
+                        month = 1;
                     }
                     else if (type == '2')
                     {
@@ -70,7 +60,7 @@ namespace weather_system
                     {
                         if (month == fmonth)
                         {
-                        Console.WriteLine(line);
+                            Console.WriteLine(line);
                         }
                     }
                     else if (year == lyear && month <= lmonth)
@@ -83,7 +73,11 @@ namespace weather_system
 
         public static void Sortingby(int type)
         {
-            int tvalue = 0;
+            int lyear = 0;
+            int fyear = 0;
+            int month = 0;
+            int year = 0;
+            string[] all = new string[200];
             if (type != 1 && type != 2)
             {
                 Console.WriteLine("you have note enterd a valid input");
@@ -93,66 +87,7 @@ namespace weather_system
                 Console.WriteLine("Please select the desired weather station");
                 string path = ("C:\\c#-data-files\\" + Console.ReadLine() + ".txt");
 
-                Console.WriteLine("when do you want to start from? (MM/YYYY)");
-                string fdate = Console.ReadLine();
-                int fmonth = Convert.ToInt32(fdate.Split('/')[0]);
-                int fyear = Convert.ToInt32(fdate.Split('/')[1]);
 
-                Console.WriteLine("when do you want the search to end? (MM/YYYY)");
-                string ldate = Console.ReadLine();
-                int lmonth = Convert.ToInt32(ldate.Split('/')[0]);
-                int lyear = Convert.ToInt32(ldate.Split('/')[1]);
-                
-
-                Console.WriteLine("what data do you want it sorted by?");
-                string value = Console.ReadLine();
-
-                if (value == "max temp")
-                {
-                   tvalue = 2;
-                }
-                else if (value == "min temp")
-                {
-                    tvalue = 3;
-                }
-                else if (value == "af")
-                {
-                    tvalue = 4;
-                }
-                else if (value == "rain")
-                {
-                    tvalue = 5;
-                }
-                else if (value == "sun")
-                {
-                    tvalue = 6;
-                }
-                int i = 0;
-                using (StreamReader sr = new StreamReader(path))
-                {
-                    string line = sr.ReadLine();
-                    while (line != null)
-                    {
-                        i++;
-                        line = sr.ReadLine();
-                        int year = Convert.ToInt32(line.Split("\t")[1]);
-                        int month = Convert.ToInt32(line.Split("\t")[2]);
-                    }
-                }
-            }
-        }
-
-        public static void Stat(int type)
-        {
-            int tvalue = 0;
-            if (type != 1 && type != 2)
-            {
-                Console.WriteLine("you have note enterd a valid input");
-            }
-            else if (type == '1' || type == '2')
-            {
-                Console.WriteLine("Please select the desired weather station");
-                string path = ("C:\\c#-data-files\\" + Console.ReadLine() + ".txt");
 
                 int fmonth = 1;
                 while (fmonth >= 1 && fmonth <= 12)
@@ -160,7 +95,7 @@ namespace weather_system
                     Console.WriteLine("when do you want to start from? (MM/YYYY)");
                     string fdate = Console.ReadLine();
                     fmonth = Convert.ToInt32(fdate.Split('/')[0]);
-                    int fyear = Convert.ToInt32(fdate.Split('/')[1]);
+                    fyear = Convert.ToInt32(fdate.Split('/')[1]);
                 }
 
                 int lmonth = 1;
@@ -169,13 +104,176 @@ namespace weather_system
                     Console.WriteLine("when do you want the search to end? (MM/YYYY)");
                     string ldate = Console.ReadLine();
                     lmonth = Convert.ToInt32(ldate.Split('/')[0]);
-                    int lyear = Convert.ToInt32(ldate.Split('/')[1]);
+                    lyear = Convert.ToInt32(ldate.Split('/')[1]);
+                }
+                int tvalue = 0; 
+                int a = 0;
+
+                    while (a == 0)
+                    {
+                        Console.WriteLine("what data do you want it sorted by?");
+                        string value = Console.ReadLine();
+
+                        if (value == "max temp")
+                        {
+                            tvalue = 2;
+                            a++;
+                        }
+                        else if (value == "min temp")
+                        {
+                            tvalue = 3;
+                            a++;
+                        }
+                        else if (value == "af")
+                        {
+                            tvalue = 4;
+                            a++;
+                        }
+                        else if (value == "rain")
+                        {
+                            tvalue = 5;
+                            a++;
+                        }
+                        else if (value == "sun")
+                        {
+                            tvalue = 6;
+                            a++;
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("you have not entered the correct value, try again");
+                        }
+                    }
+
+
+
+                int i = 0;
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    string line = sr.ReadLine();
+                    Console.WriteLine(line);
+                    while (line != null)
+                    {
+
+                        if (fyear == year && month >= fmonth)
+                        {
+                            if (line.Split("\t")[tvalue] == "--")
+                            {
+                                sr.ReadLine();
+                            }
+                            all[i] = sr.ReadLine();
+                            i++;
+                        }
+                        else if (year > fyear && lyear > year)
+                        {
+                            if (month == fmonth)
+                            {
+                                if (line.Split("\t")[tvalue] == "--")
+                                {
+                                    sr.ReadLine();
+                                }
+                                all[i] = sr.ReadLine();
+                                i++;
+                            }
+                        }
+                        else if (year == lyear && month <= lmonth)
+                        {
+                            if (line.Split("\t")[tvalue] == "--")
+                            {
+                                sr.ReadLine();
+                            }
+                            all[i] = sr.ReadLine();
+                            i++;
+                        }
+                       
+                    }
+
+                    double[] sorts = new double[i];
+                   
+                    a = 0;
+                    while (a < i)
+                    {
+                        if(all[a].Split("\t")[tvalue] == "--")
+                        {
+                            a++;
+                        }
+                        else
+                        {
+                            sorts[a] = Convert.ToDouble(all[a].Split("\t")[tvalue]);
+                            a++;
+                        }
+                    }
+                    a = 0;
+                    int b = 0;
+                    if (type == 1)
+                    {
+                        Array.Sort(sorts);
+                    }
+                    else if (type == 2)
+                    {
+                        Array.Sort(sorts);
+                        Array.Reverse(sorts);
+                    }
+                    while (a < i)
+                    {
+
+                        while (b <= a)
+                        {
+                            if (sorts[a] == Convert.ToDouble(all[b].Split("\t")[tvalue]))
+                            {
+                                Console.WriteLine(all[b]);
+                            }
+                            b++;
+                        }
+                        a++;
+                    }
+                }
+            }
+        }
+
+        public static void Stat(int type)
+        {
+            int tvalue = 0;
+            string value = "#";
+            int fmonth = 1;
+            int fyear = 1;
+            int lyear = 3000;
+            int lmonth = 12;
+
+
+            if (type != 1 && type != 2)
+            {
+                Console.WriteLine("you have note enterd a valid input");
+            }
+            else if (type == '1' || type == '2')
+            {
+                Console.WriteLine("Please select the desired weather station");
+                string path = ("C:\\c#-data-files\\" + Console.ReadLine() + ".txt");
+
+
+                while (fmonth >= 1 && fmonth <= 12)
+                {
+                    Console.WriteLine("when do you want to start from? (MM/YYYY)");
+                    string fdate = Console.ReadLine();
+                    fmonth = Convert.ToInt32(fdate.Split('/')[0]);
+                    fyear = Convert.ToInt32(fdate.Split('/')[1]);
+                }
+
+
+                while (lmonth >= 1 && lmonth <= 12)
+                {
+                    Console.WriteLine("when do you want the search to end? (MM/YYYY)");
+                    string ldate = Console.ReadLine();
+                    lmonth = Convert.ToInt32(ldate.Split('/')[0]);
+                    lyear = Convert.ToInt32(ldate.Split('/')[1]);
                 }
 
                 int a = 0;
                 while (a == 0)
-                {Console.WriteLine("what data do you want it sorted by?");
-                string value = Console.ReadLine();
+                {
+                    Console.WriteLine("what data do you want it sorted by?");
+                    value = Console.ReadLine();
 
                     if (value == "max temp")
                     {
@@ -201,7 +299,6 @@ namespace weather_system
                     {
                         tvalue = 6;
                         a++;
-
                     }
                     else
                     {
@@ -209,8 +306,8 @@ namespace weather_system
                     }
                 }
                 int i = 0;
-                int total = 0;
-                int current = 0;
+                double total = 0;
+                double current;
                 int wrong = 0;
                 using (StreamReader sr = new StreamReader(path))
                 {
@@ -221,9 +318,9 @@ namespace weather_system
                         line = sr.ReadLine();
                         int year = Convert.ToInt32(line.Split("\t")[1]);
                         int month = Convert.ToInt32(line.Split("\t")[2]);
-                        if (line.Split("\t")[tvalue] != "--" )
+                        if (line.Split("\t")[tvalue] != "--")
                         {
-                            current = Convert.ToInt32(line.Split("\t")[tvalue]);
+                            current = Convert.ToDouble(line.Split("\t")[tvalue]);
                         }
                         else
                         {
@@ -247,7 +344,7 @@ namespace weather_system
                         }
                         if (type == 1)
                         {
-                            int average = total / (i - wrong);
+                            double average = total / (i - wrong);
                             Console.WriteLine("the average " + value + " between" + fmonth + " and " + lmonth + " is " + average);
                         }
 
@@ -257,7 +354,6 @@ namespace weather_system
                         }
                     }
                 }
-
             }
         }
 
@@ -307,21 +403,18 @@ namespace weather_system
                     Console.WriteLine("AF");
                     AF = Console.ReadLine();
                 }
-                
 
                 while (Convert.ToInt32(sun) >= 0 && Convert.ToInt32(sun) <= 31 || sun == "--")
                 {
                     Console.WriteLine("sun");
                     sun = Console.ReadLine();
                 }
-                
-
                 //verify
 
                 using (StreamWriter sw = File.AppendText(path))
-				{
+                {
                     sw.WriteLine(year + "\t" + month + "\t" + maxtemp + "\t" + mintemp + "\t" + AF + "\t" + sun);
-				}
+                }
                 //append data file
                 Console.WriteLine("is that all? (y/n)");
                 answer = Convert.ToChar(Console.ReadLine());
@@ -331,7 +424,7 @@ namespace weather_system
 
         static void Main(string[] args)
         {
-            int answer = 6;
+            int answer;
             Console.WriteLine("Root Menu");
             Console.WriteLine("Please select the desired the function next.");
             Console.WriteLine("1. weather reports");
@@ -371,8 +464,6 @@ namespace weather_system
                 if (answer == 4)
                 {
                     Console.WriteLine("data entry menu");
-                    int menu = Convert.ToInt32(Console.ReadLine());
-
                     Dataentry();
                 }
                 if (answer == 0)
