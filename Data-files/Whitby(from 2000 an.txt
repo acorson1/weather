@@ -1,9 +1,9 @@
 Whitby Coastguard / Whitby(from 2000 and $sunshine)
 Location until Dec 1999 490400E 511400N 60m amsl 
 & from 2000 489100E 510400N, Lat 54.481 Lon -0.624 41m amsl
-Estimated data is marked with a * after the value.
+Estimated data is marked with a  after the value.
 Missing data (more than 2 days missing in month) is marked by  ---.
-Sunshine data taken from an automatic Kipp & Zonen sensor marked with a #, otherwise sunshine data taken from a Campbell Stokes recorder.
+Sunshine data taken from an automatic Kipp & Zonen sensor marked with a , otherwise sunshine data taken from a Campbell Stokes recorder.
    yyyy  mm   tmax    tmin      af    rain     sun
 
    1961   9   18.6    10.0       0    26.9
@@ -678,9 +678,9 @@ Sunshine data taken from an automatic Kipp & Zonen sensor marked with a #, other
    2017   6   19.8    11.5       0   135.3   201.6 
    2017   7   19.8    11.8       0    61.6   208.9 
    2017   8   20.0    11.5       0    55.6   200.1 
-   2017   9   17.2*   10.4       0    79.9   137.5 
-   2017  10   15.6*    9.7       0    43.2   110.6 
-   2017  11    9.7*    4.0       2    74.3    85.4 
+   2017   9   17.2   10.4       0    79.9   137.5 
+   2017  10   15.6    9.7       0    43.2   110.6 
+   2017  11    9.7    4.0       2    74.3    85.4 
    2017  12    7.8     2.4       8    36.9    68.7 
    2018   1    7.1     2.5       4    49.6    67.4 
    2018   2    5.4     0.8      10    48.4    75.1 
