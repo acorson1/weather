@@ -73,14 +73,17 @@ namespace weather_system
 
         public static void Sortingby(int type)
         {
+            //declaring variables and array
             int lyear = 0;
             int fyear = 0;
             int month = 0;
             int year = 0;
             string[] all = new string[200];
+
+            //verifying that user entered valid input
             if (type != 1 && type != 2)
             {
-                Console.WriteLine("you have note enterd a valid input");
+                Console.WriteLine("you have not enterd a valid input");
             }
             else if (type == '1' || type == '2')
             {
@@ -314,13 +317,14 @@ namespace weather_system
                     string line = sr.ReadLine();
                     while (line != null)
                     {
-                        i++;
+                        
                         line = sr.ReadLine();
                         int year = Convert.ToInt32(line.Split("\t")[1]);
                         int month = Convert.ToInt32(line.Split("\t")[2]);
                         if (line.Split("\t")[tvalue] != "--")
                         {
                             current = Convert.ToDouble(line.Split("\t")[tvalue]);
+                            
                         }
                         else
                         {
@@ -330,17 +334,20 @@ namespace weather_system
                         if (fyear == year && month >= fmonth)
                         {
                             total = current + total;
+                            i++;
                         }
                         else if (year > fyear && lyear > year)
                         {
                             if (month == fmonth)
                             {
                                 total = current + total;
+                                i++;
                             }
                         }
                         else if (year == lyear && month <= lmonth)
                         {
                             total = current + total;
+                            i++;
                         }
                         if (type == 1)
                         {
@@ -366,45 +373,49 @@ namespace weather_system
                 Console.WriteLine("what station do you want to enter the data for?");
                 string path = ("C:\\c#-data-files\\" + Console.ReadLine() + ".txt");
 
-                string year = "2020";
-                string month = "01";
-                string maxtemp = "100.0";
-                string mintemp = "0.1";
-                string AF = "50";
-                string sun = "1";
+                string year = "3000";
+                string month = "32";
+                string maxtemp = "-1001";
+                string mintemp = "1001";
+                string AF = "1000";
+                string sun = "1000";
 
                 //2.information
-                while (Convert.ToInt32(year) >= 1800 && Convert.ToInt32(year) <= 2025)
+                while (Convert.ToInt32(year) <= 1700 || Convert.ToInt32(year) >= 2025)
                 {
                     Console.WriteLine("year");
                     year = Console.ReadLine();
+                    break;
                 }
 
-                while (Convert.ToInt32(month) >= 1 && Convert.ToInt32(month) <= 12)
+                while (Convert.ToInt32(month) <= 1 || Convert.ToInt32(month) >= 12)
                 {
                     Console.WriteLine("month");
                     month = Console.ReadLine();
+                    break;
                 }
 
-                while (Convert.ToDouble(maxtemp) >= -1000 && Convert.ToDouble(maxtemp) <= 1000 || maxtemp == "--")
+                while (Convert.ToDouble(maxtemp) <= -1000 || Convert.ToDouble(maxtemp) >= 1000)
                 {
                     Console.WriteLine("max temp");
                     maxtemp = Console.ReadLine();
+                    break;
                 }
 
-                while (Convert.ToDouble(mintemp) >= -1000 && Convert.ToDouble(mintemp) <= Convert.ToDouble(maxtemp) || mintemp == "--")
+                while (Convert.ToDouble(mintemp) <= -1000 || Convert.ToDouble(mintemp) >= Convert.ToDouble(maxtemp) || mintemp == "--")
                 {
                     Console.WriteLine("min temp");
                     mintemp = Console.ReadLine();
+                    break;
                 }
 
-                while (Convert.ToDouble(AF) >= 0 && Convert.ToDouble(AF) <= 31 || AF == "--")
+                while (Convert.ToDouble(AF) <= 0 || Convert.ToDouble(AF) >= 31)
                 {
                     Console.WriteLine("AF");
                     AF = Console.ReadLine();
                 }
 
-                while (Convert.ToInt32(sun) >= 0 && Convert.ToInt32(sun) <= 31 || sun == "--")
+                while (Convert.ToInt32(sun) <= 0 || Convert.ToInt32(sun) >= 31)
                 {
                     Console.WriteLine("sun");
                     sun = Console.ReadLine();
@@ -448,8 +459,8 @@ namespace weather_system
                 if (answer == 2)
                 {
                     Console.WriteLine("sorting menu");
-                    Console.WriteLine("");
-                    Console.WriteLine("");
+                    Console.WriteLine("1. ascending order");
+                    Console.WriteLine("2. descending order");
                     int menu = Convert.ToInt32(Console.ReadLine());
 
                     Sortingby(menu);
@@ -457,6 +468,8 @@ namespace weather_system
                 if (answer == 3)
                 {
                     Console.WriteLine("statistical menu");
+                    Console.WriteLine("1. average");
+                    Console.WriteLine("2. totals");
                     int menu = Convert.ToInt32(Console.ReadLine());
 
                     Stat(menu);
