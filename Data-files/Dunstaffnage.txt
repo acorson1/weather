@@ -1,10 +1,4 @@
-Dunstaffnage
-Location 188100E 734000N, Lat 56.451 Lon -5.439, 3m amsl
-Estimated data is marked with a * after the value.
-Missing data (more than 2 days missing in month) is marked by  ---.
-Sunshine data taken from an automatic Kipp & Zonen sensor marked with a #, otherwise sunshine data taken from a Campbell Stokes recorder.
    yyyy  mm   tmax    tmin      af    rain     sun
-              degC    degC    days      mm   hours
    1971   6   ---     ---     ---     71.4    ---
    1971   7   ---     ---     ---     50.1    ---
    1971   8   ---     ---     ---     83.0    ---

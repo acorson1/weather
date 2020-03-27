@@ -1,10 +1,4 @@
-Hurn
-Location 411700E 97800N, Lat 50.779 Lon -1.835, 10 metres amsl
-Estimated data is marked with a * after the value.
-Missing data (more than 2 days missing in month) is marked by  ---.
-Sunshine data taken from an automatic Kipp & Zonen sensor marked with a #, otherwise sunshine data taken from a Campbell Stokes recorder.
    yyyy  mm   tmax    tmin      af    rain     sun
-              degC    degC    days      mm   hours
    1957   1    9.1     2.5       7    73.0     ---
    1957   2    9.6     2.7       8   100.5     ---
    1957   3   12.9     5.5       4    61.3     ---

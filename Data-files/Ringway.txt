@@ -1,10 +1,4 @@
-Ringway
-Location: 381400E 384400N, Lat 53.356 Lon -2.279, 69 metres amsl
-Estimated data is marked with a * after the value.
-Missing data (more than 2 days missing in month) is marked by  ---.
-Sunshine data taken from an automatic Kipp & Zonen sensor marked with a #, otherwise sunshine data taken from a Campbell Stokes recorder.
    yyyy  mm   tmax    tmin      af    rain     sun
-              degC    degC    days      mm   hours
    1946   1    ---     ---     ---     ---    33.2
    1946   2    ---     ---     ---     ---    58.2
    1946   3    ---     ---     ---     ---   109.8

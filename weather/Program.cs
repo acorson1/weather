@@ -109,45 +109,45 @@ namespace weather_system
                     lmonth = Convert.ToInt32(ldate.Split('/')[0]);
                     lyear = Convert.ToInt32(ldate.Split('/')[1]);
                 }
-                int tvalue = 0; 
+                int tvalue = 0;
                 int a = 0;
 
-                    while (a == 0)
+                while (a == 0)
+                {
+                    Console.WriteLine("what data do you want it sorted by?");
+                    string value = Console.ReadLine();
+
+                    if (value == "max temp")
                     {
-                        Console.WriteLine("what data do you want it sorted by?");
-                        string value = Console.ReadLine();
-
-                        if (value == "max temp")
-                        {
-                            tvalue = 2;
-                            a++;
-                        }
-                        else if (value == "min temp")
-                        {
-                            tvalue = 3;
-                            a++;
-                        }
-                        else if (value == "af")
-                        {
-                            tvalue = 4;
-                            a++;
-                        }
-                        else if (value == "rain")
-                        {
-                            tvalue = 5;
-                            a++;
-                        }
-                        else if (value == "sun")
-                        {
-                            tvalue = 6;
-                            a++;
-
-                        }
-                        else
-                        {
-                            Console.WriteLine("you have not entered the correct value, try again");
-                        }
+                        tvalue = 2;
+                        a++;
                     }
+                    else if (value == "min temp")
+                    {
+                        tvalue = 3;
+                        a++;
+                    }
+                    else if (value == "af")
+                    {
+                        tvalue = 4;
+                        a++;
+                    }
+                    else if (value == "rain")
+                    {
+                        tvalue = 5;
+                        a++;
+                    }
+                    else if (value == "sun")
+                    {
+                        tvalue = 6;
+                        a++;
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("you have not entered the correct value, try again");
+                    }
+                }
 
 
 
@@ -161,7 +161,7 @@ namespace weather_system
 
                         if (fyear == year && month >= fmonth)
                         {
-                            if (line.Split("\t")[tvalue] == "--")
+                            if (line.Split("\t")[tvalue] == "---")
                             {
                                 sr.ReadLine();
                             }
@@ -172,7 +172,7 @@ namespace weather_system
                         {
                             if (month == fmonth)
                             {
-                                if (line.Split("\t")[tvalue] == "--")
+                                if (line.Split("\t")[tvalue] == "---")
                                 {
                                     sr.ReadLine();
                                 }
@@ -182,22 +182,22 @@ namespace weather_system
                         }
                         else if (year == lyear && month <= lmonth)
                         {
-                            if (line.Split("\t")[tvalue] == "--")
+                            if (line.Split("\t")[tvalue] == "---")
                             {
                                 sr.ReadLine();
                             }
                             all[i] = sr.ReadLine();
                             i++;
                         }
-                       
+
                     }
 
                     double[] sorts = new double[i];
-                   
+
                     a = 0;
                     while (a < i)
                     {
-                        if(all[a].Split("\t")[tvalue] == "--")
+                        if (all[a].Split("\t")[tvalue] == "---")
                         {
                             a++;
                         }
@@ -317,14 +317,14 @@ namespace weather_system
                     string line = sr.ReadLine();
                     while (line != null)
                     {
-                        
+
                         line = sr.ReadLine();
                         int year = Convert.ToInt32(line.Split("\t")[1]);
                         int month = Convert.ToInt32(line.Split("\t")[2]);
-                        if (line.Split("\t")[tvalue] != "--")
+                        if (line.Split("\t")[tvalue] != "---")
                         {
                             current = Convert.ToDouble(line.Split("\t")[tvalue]);
-                            
+
                         }
                         else
                         {
@@ -378,6 +378,7 @@ namespace weather_system
                 string maxtemp = "-1001";
                 string mintemp = "1001";
                 string AF = "1000";
+                string rain = "10";
                 string sun = "1000";
 
                 //2.information
@@ -402,20 +403,25 @@ namespace weather_system
                     break;
                 }
 
-                while (Convert.ToDouble(mintemp) <= -1000 || Convert.ToDouble(mintemp) >= Convert.ToDouble(maxtemp) || mintemp == "--")
+                while (Convert.ToDouble(mintemp) <= -1000 || Convert.ToDouble(mintemp) >= Convert.ToDouble(maxtemp) || mintemp == "---")
                 {
                     Console.WriteLine("min temp");
                     mintemp = Console.ReadLine();
                     break;
                 }
 
-                while (Convert.ToDouble(AF) <= 0 || Convert.ToDouble(AF) >= 31)
+                while (Convert.ToDouble(AF) <= 0 || Convert.ToDouble(AF) >= 10000)
                 {
                     Console.WriteLine("AF");
                     AF = Console.ReadLine();
                 }
+                while (Convert.ToDouble(rain) <= 0 || Convert.ToDouble(AF) >= 10000)
+                {
+                    Console.WriteLine("rain");
+                    rain = Console.ReadLine();
+                }
 
-                while (Convert.ToInt32(sun) <= 0 || Convert.ToInt32(sun) >= 31)
+                while (Convert.ToInt32(sun) <= 0 || Convert.ToInt32(sun) >= 10000)
                 {
                     Console.WriteLine("sun");
                     sun = Console.ReadLine();
@@ -424,7 +430,7 @@ namespace weather_system
 
                 using (StreamWriter sw = File.AppendText(path))
                 {
-                    sw.WriteLine(year + "\t" + month + "\t" + maxtemp + "\t" + mintemp + "\t" + AF + "\t" + sun);
+                    sw.WriteLine(year + "\t" + month + "\t" + maxtemp + "\t" + mintemp + "\t" + AF + "\t" + rain + "\t" + sun);
                 }
                 //append data file
                 Console.WriteLine("is that all? (y/n)");

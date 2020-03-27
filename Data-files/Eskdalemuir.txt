@@ -1,10 +1,4 @@
-Eskdalemuir
-Location 323400E 602600N, Lat 55.311 Lon -3.206, 242m amsl
-Estimated data is marked with a * after the value.
-Missing data (more than 2 days missing in month) is marked by  ---.
-Sunshine data taken from an automatic Kipp & Zonen sensor marked with a #, otherwise sunshine data taken from a Campbell Stokes recorder.
    yyyy  mm   tmax    tmin      af    rain     sun
-              degC    degC    days      mm   hours
    1911   1   ---     ---     ---    107.7    ---
    1911   2   ---     ---     ---    233.6    ---
    1911   3   ---     ---     ---     73.5    ---

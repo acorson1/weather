@@ -1,10 +1,4 @@
-Shawbury
-Location: 355200E 322100N, Lat 52.794 Lon -2.663, 72 metres amsl
-Estimated data is marked with a * after the value.
-Missing data (more than 2 days missing in month) is marked by  ---.
-Sunshine data taken from an automatic Kipp & Zonen sensor marked with a #, otherwise sunshine data taken from a Campbell Stokes recorder.
    yyyy  mm   tmax    tmin      af    rain     sun
-              degC    degC    days      mm   hours
    1946   1    ---     ---     ---    58.3    37.8
    1946   2    ---     ---     ---    74.2    71.4
    1946   3    ---     ---     ---    19.8   125.0

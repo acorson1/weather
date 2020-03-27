@@ -1,10 +1,4 @@
-Lerwick
-Location: 445300E 1139700N, Lat 60.139 Lon -1.183, 82 metres amsl
-Estimated data is marked with a * after the value.
-Missing data (more than 2 days missing in month) is marked by  ---.
-Sunshine data taken from an automatic Kipp & Zonen sensor marked with a #, otherwise sunshine data taken from a Campbell Stokes recorder.
    yyyy  mm   tmax    tmin      af    rain     sun
-              degC    degC    days      mm   hours
    1930  12    7.0     3.6       0   122.4    13.1
    1931   1    4.9     0.2      13   108.0    29.7
    1931   2    4.4    -0.3      12   138.3    52.6

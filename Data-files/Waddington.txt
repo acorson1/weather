@@ -4,7 +4,7 @@ Estimated data is marked with a * after the value.
 Missing data (more than 2 days missing in month) is marked by  ---.
 Sunshine data taken from an automatic Kipp & Zonen sensor marked with a #, otherwise sunshine data taken from a Campbell Stokes recorder.
    yyyy  mm   tmax    tmin      af    rain     sun
-              degC    degC    days      mm   hours
+
    1947   1    3.3    -0.7    ---     34.0    60.0
    1947   2   -0.6    -3.8    ---     19.0    24.7
    1947   3    6.2     0.0    ---     95.0    73.7

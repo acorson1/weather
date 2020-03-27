@@ -1,10 +1,4 @@
-Manston
-Location 632300E 166100N, Lat 51.346 Lon 1.337, 49m amsl
-Estimated data is marked with a * after the value.
-Missing data (more than 2 days missing in month) is marked by  ---.
-Sunshine data taken from an automatic Kipp & Zonen sensor marked with a #, otherwise sunshine data taken from a Campbell Stokes recorder.
    yyyy  mm   tmax    tmin      af    rain     sun
-              degC    degC    days      mm   hours
    1934   7   22.4    12.9    ---     37.1    ---
    1934   8   20.8    12.1    ---     51.6    ---
    1934   9   20.4    10.8    ---     25.4    ---
